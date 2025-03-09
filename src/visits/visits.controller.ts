@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { VisitsService } from './visits.service';
 import { Visit } from './visit.model';
 
@@ -7,7 +7,9 @@ export class VisitsController {
   constructor(private readonly visitsService: VisitsService) {}
 
   @Get()
-  findAll(): Visit[] {
-    return this.visitsService.getVisits();
+  findAll(@Query('from') from: Date, @Query('to') to): Visit[] {
+    return this.visitsService.getVisits({
+      from, to
+    });
   }
 }

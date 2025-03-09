@@ -5,10 +5,21 @@ import { Visit } from './visit.model';
 export class VisitsService {
   private readonly nbOfDays = 10;
 
-  getVisits(): Visit[] {
-    return [...Array(this.nbOfDays).keys()].map((i) =>
-      this.generateRandomVisit(i),
-    );
+  getVisits({ from, to }: { from: Date; to: Date }): Visit[] {
+    return [...Array(this.nbOfDays).keys()]
+      .map((i) => this.generateRandomVisit(i))
+      .filter((v) => this.filterVisit(v, { from, to }));
+  }
+
+  private filterVisit(
+    visit: Visit,
+    params: { from: number; to: number },
+  ): boolean {
+    const { from, to } = params;
+    if (!from && !to) {
+      return true;
+    }
+    return from > visit.date.seconds && visit.date.seconds < to;
   }
 
   private generateRandomVisit(index: number): Visit {
