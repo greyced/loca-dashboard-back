@@ -5,7 +5,7 @@ import { Visit } from './visit.model';
 export class VisitsService {
   private readonly nbOfDays = 10;
 
-  getVisits({ from, to }: { from: Date; to: Date }): Visit[] {
+  getVisits({ from, to }: { from: number; to: number }): Visit[] {
     return [...Array(this.nbOfDays).keys()]
       .map((i) => this.generateRandomVisit(i))
       .filter((v) => this.filterVisit(v, { from, to }));
