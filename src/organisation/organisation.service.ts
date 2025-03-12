@@ -56,6 +56,8 @@ export class OrganisationService {
           phone: '0658486128',
         },
       ],
+      phone: '0698201989',
+      nbRealEstates: 340 + index,
       name: 'Super corp' + index,
     };
   }

@@ -4,4 +4,6 @@ export interface Organisation {
   id: string;
   name: string;
   members: User[];
+  phone: string;
+  nbRealEstates: number;
 }
