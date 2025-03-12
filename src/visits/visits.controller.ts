@@ -7,7 +7,7 @@ export class VisitsController {
   constructor(private readonly visitsService: VisitsService) {}
 
   @Get()
-  findAll(@Query('from') from: Date, @Query('to') to): Visit[] {
+  findAll(@Query('from') from: number, @Query('to') to: number): Visit[] {
     return this.visitsService.getVisits({
       from, to
     });
