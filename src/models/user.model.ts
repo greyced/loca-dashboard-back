@@ -6,6 +6,7 @@ export interface User {
   role: Role;
   organisations: Array<string>;
   capabilities: Array<Capability>;
+  phone?: string;
 }
 
 export enum Role {

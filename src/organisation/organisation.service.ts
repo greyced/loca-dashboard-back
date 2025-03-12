@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Organisation } from './organisation.model';
+import { Capability, Role } from 'src/models/user.model';
 
 @Injectable()
 export class OrganisationService {
@@ -40,9 +41,21 @@ export class OrganisationService {
   }
 
   private generateRandomOrganisation(index: number): Organisation {
+    const odd = index % 2 === 0;
     return {
       id: crypto.randomUUID(),
-      members: [],
+      members: [
+        {
+          id: crypto.randomUUID(),
+          capabilities: [Capability.WRITE, Capability.READ],
+          name: odd ? 'cedric duperron' : 'yann celenice',
+          mail: odd ? 'cedric.duperron@gmail.com' : 'yann.celenice@gmail.com',
+          password: 'password',
+          organisations: [],
+          role: Role.SUPER_ADMIN,
+          phone: '0658486128',
+        },
+      ],
       name: 'Super corp' + index,
     };
   }

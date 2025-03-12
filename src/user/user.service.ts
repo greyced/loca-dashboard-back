@@ -11,7 +11,8 @@ export class UserService {
       mail: 'yann.celenice@gmail.com',
       password: 'password',
       organisations: [],
-      role: Role.SUPER_ADMIN,
+      phone: '0658487676',
+      role: Role.ADMIN,
     },
     {
       id: crypto.randomUUID(),
@@ -20,6 +21,7 @@ export class UserService {
       mail: 'cedric.duperron@gmail.com',
       password: 'password',
       organisations: [],
+      phone: '0658487678',
       role: Role.SUPER_ADMIN,
     },
   ];
