@@ -9,6 +9,8 @@ import { NewsController } from './news/news.controller';
 import { NewsService } from './news/news.service';
 import { OrganisationController } from './organisation/organisation.controller';
 import { OrganisationService } from './organisation/organisation.service';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [],
@@ -18,6 +20,7 @@ import { OrganisationService } from './organisation/organisation.service';
     RealEstateController,
     NewsController,
     OrganisationController,
+    UserController,
   ],
   providers: [
     AppService,
@@ -25,6 +28,7 @@ import { OrganisationService } from './organisation/organisation.service';
     RealEstateService,
     NewsService,
     OrganisationService,
+    UserService,
   ],
 })
 export class AppModule {}
